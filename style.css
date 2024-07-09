@@ -1,0 +1,42 @@
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#randomValueDisplay {
+    background: #FFFFFFFF;
+    border: 3px solid #DDDDDDDD;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+#image {
+    background-attachment:fixed;
+    height: 100vh;
+    width: auto;
+}
+
+html {
+    background: url("img.jpg") center top no-repeat;
+    min-height: 100%;
+    padding: 400px 0;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #ff0000;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}

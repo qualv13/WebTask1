@@ -2,12 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Random Value</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="file" id="file">
-    <table id="table"></table>
-    <script src = index.js></script>
+
+    <div id="randomValueDisplay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadAndShowRandomValue);
+        async function loadAndShowRandomValue() {
+            try {
+                const response = await fetch('data.csv');
+                const data = await response.text();
+                const { headings, values } = parseCSV(data);
+                showRandomValue(headings, values);
+            } catch (error) {
+                console.error('Error fetching the CSV file:', error);
+            }
+        }
+
+        function parseCSV(data) {
+            const rows = data.trim().split('\n');
+            const headings = rows[0].split(',');
+            const values = rows.slice(1).map(row => row.split(','));
+            return { headings, values };
+        }
+        function showRandomValue(headings, values) {
+            const displayDiv = document.getElementById('randomValueDisplay');
+            displayDiv.innerHTML = '';
+            let randomIndex;
+            let randomValues;
+
+            do {
+                randomIndex = Math.floor(Math.random() * values.length);
+                randomValues = values[randomIndex];
+            } while (randomValues.includes(''));
+
+            randomValues.forEach((value, index) => {
+                const headingElement = document.createElement('h3');
+                const valueElement = document.createElement('p');
+                headingElement.textContent = headings[index];
+                valueElement.textContent = value;
+                displayDiv.appendChild(headingElement);
+                displayDiv.appendChild(valueElement);
+            });
+        }
+    </script>
 </body>
 </html>
+
+
