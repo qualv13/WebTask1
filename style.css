@@ -4,9 +4,8 @@ body {
     color: #333333;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    background-color: #be1c24;
 }
 
 #randomValueDisplay {
@@ -15,28 +14,27 @@ body {
     border-radius: 10px;
     max-width: 600px;
     width: 100%;
+    height: auto;
     text-align: center;
+    text-shadow: 1px 1px #be1c24;
 }
 
-#image {
-    background-attachment:fixed;
-    height: 100vh;
-    width: auto;
-}
 
 html {
-    background: url("img.jpg") center top no-repeat;
+    background: url("img.jpg") center top no-repeat #be1c24;
     min-height: 100%;
     padding: 400px 0;
     box-sizing: border-box;
 }
 
 h3 {
-    color: #ff0000;
-    margin-bottom: 5px;
+    font-size: 1.8em;
+    color: #d01010;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.6em;
     margin: 10px 0;
 }
